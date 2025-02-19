@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoboForex Tutorials</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-hover: #0052cc;
+            --background: #0d1117;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1f25, #0d1117);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text);
+            position: relative;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .market-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+            max-width: 800px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .logo {
+            width: 80px;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 1rem;
+            text-align: center;
+            color: transparent;
+            background: linear-gradient(
+                135deg,
+                #4facfe 0%,
+                #00f2fe 25%,
+                #0066FF 50%,
+                #4facfe 75%,
+                #00f2fe 100%
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            animation: gradient 8s ease infinite;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        h1::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            z-index: 1;
+            filter: blur(8px);
+            opacity: 0.7;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.25rem;
+            background-color: var(--card-bg);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .button-text {
+            font-weight: 500;
+            font-size: 1rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .button-icon {
+            color: #94a3b8;
+            position: absolute;
+            right: 1.25rem;
+        }
+
+        .button:hover .button-icon {
+            color: var(--primary);
+            transform: translateX(3px);
+            transition: transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+                padding: 0.3rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .button {
+                padding: 0.875rem 1rem;
+            }
+
+            .market-bg {
+                width: 150%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .button-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="market.png" alt="Market Background" class="market-bg">
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="RoboForex Logo" class="logo">
+            <h1 data-text="RoboForex Tutorial Hub">RoboForex Tutorial Hub</h1>
+            <p class="subtitle">Access comprehensive tutorials for RoboForex platforms</p>
+        </div>
+        <div class="button-container">
+            <a href="https://www.appdemostore.com/m/5712116239040512" class="button">
+                <span class="button-text">Client</span>
+                <span class="button-icon">→</span>
+            </a>
+            <a href="https://www.appdemostore.com/m/6284545051066368" class="button">
+                <span class="button-text">Partner</span>
+                <span class="button-icon">→</span>
+            </a>
+            <a href="https://www.appdemostore.com/m/6088036506402816" class="button">
+                <span class="button-text">CopyFX Trader (Manager)</span>
+                <span class="button-icon">→</span>
+            </a>
+            <a href="https://www.appdemostore.com/m/6693303564632064" class="button">
+                <span class="button-text">CopyFX Investor (Follower)</span>
+                <span class="button-icon">→</span>
+            </a>
+            <a href="https://www.appdemostore.com/m/6247510621814784" class="button">
+                <span class="button-text">R Stocks Trader</span>
+                <span class="button-icon">→</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
